@@ -8,3 +8,4 @@ a=int(input('Ingrese un numero: '))
 b=int(input('Ingrese otro numero: '))
 resultado=suma(a,b) 
 print(resultado)
+
