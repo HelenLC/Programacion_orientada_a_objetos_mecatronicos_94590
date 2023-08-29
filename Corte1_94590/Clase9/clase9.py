@@ -1,0 +1,13 @@
+#len=recorre de uno en uno la lista/tamaño de lista
+# string= texto
+#Array=Arreglo/ ordenamiento de datos establecidos en 1, 2 o más dimensiones
+#Unidimensional=Tiene solo una dimension (columna/fila)
+#Bidimensional=Tiene varias dimensiones (columna/fila)
+#listas= se comportan como arreglos, pueden almacenar diferentes tipos de variantes y son dinamicas( su tamaño pueden aumentar) y las lista empieza de 0 y los arreglos(columna) desde 1
+#arreglo=su dimension es definida, todos tienen el mismo tipo de datos y el inidce empieza en 1
+#listas= su tamaño es dinamico, adquiere diferentes tipos y empieza en 0
+#append=agrega elementos al final de una lista
+#insert=agrega un elemento en la entrada seleccionada
+#clear=elimina los elementos de la lista
+#remove=elimina un elmento
+#Index=extrae el valor en la lista ssegun el documento solicitado
