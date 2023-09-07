@@ -5,16 +5,19 @@ def repartir():
     deck='A23456789JQK'
     return c(deck)
 
-def valor(card):
+def valor(card,mano):
     jack=['J','Q','K']
 
-    if card in jack:
-        card=10
-    elif card=='A':
-        card=11
+    if card == "A":
+        if "A" not in mano:
+            valor = 11
+        else:
+            valor = 1
+    elif card in jack:
+        valor = 10
     else:
-        card=int(card)
-    return card 
+        valor = int(card)
+    return valor
 
 def conteo(mano,card):
     cartas=[]
