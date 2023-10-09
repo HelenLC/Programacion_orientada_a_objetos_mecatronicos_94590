@@ -2,6 +2,7 @@
 #strip=quita caracteres desde el final
 #split= lista y se pone , o espacio segun lo que se quiere separar
 #\n= salto de linea
+#bruto=sin iva
 def main_read():
     f=open('matrizAsignacion.txt', 'rt')
     documento=f.read()
@@ -12,7 +13,7 @@ def main_read2():
     f=open('matrizAsignacion.txt', 'rt')
     documento=f.readline().rstrip('\n').split(',')
 
-    while documento != [""]: 
+    while documento != [""]: #vacio
         print(documento)
         #input('Presione enter')
         documento=f.readline().rstrip('\n').split(',')
@@ -22,7 +23,7 @@ def suma(lista):
     salida=''
     for dato in lista:
         result=int(dato[0])+int(dato[1])+int(dato[3])
-        salida+result+('\n')
+        salida+str(result)+('\n')
     return salida
 
 def main_read3():
