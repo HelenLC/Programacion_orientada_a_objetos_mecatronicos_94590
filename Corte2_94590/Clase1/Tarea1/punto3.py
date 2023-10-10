@@ -8,3 +8,6 @@ a = "camaleon"
 b = "on"
 posiciones = encontrar_posiciones(a, b)
 print("Las posiciones donde se encuentra", b, "en", a, "son:", posiciones)
+
+if __name__=='__main__':
+    encontrar_posiciones=[]
