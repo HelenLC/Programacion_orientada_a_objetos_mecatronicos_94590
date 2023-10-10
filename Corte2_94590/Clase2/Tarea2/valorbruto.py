@@ -10,44 +10,36 @@ def main_read():
     print(elemento)
     print(elemento[1][1])
 
+def calcular_valorbruto(producto, valorneto):
+    IVA = {open('Alimentos.txt','rt')}
+   
+    if producto in IVA:
+        valorbase = valorneto / (1 + IVA[producto])
+        valor_IVA = valorneto - valorbase
 
-    #print(type(producto)) =tipo de documento
+        return valorbase, valor_IVA
+    else:
+        return None
 
-# # producto= {
-#   #  CODIGO= f=open('Alimentos.txt', 'rt'), 
-#    # DESCRIPCION= f=open('Alimentos.txt', 'rt'),
-#     #TARIFA_IVA= 0.19
-#     }
-# CODIGO =producto["CÓDIGO"]
-# DESCRIPCION =producto["DESCRIPCIÓN"]
-# TARIFA_IVA =producto["TARIFA IVA"]
-
-# print("CÓDIGO:", CODIGO)
-# print("DESCRIPCIÓN:", DESCRIPCION)
-# print("TARIFA IVA:", TARIFA_IVA)
-
-# def main_producto():
-#     f=open('Alimentos.txt', 'rt')
-#     producto=f.readline().rstrip('\n').split(',')
-
-# while True:
-#     i=input('Ingrese un producto y su valor: ')
-#     if i.lower() == "salir":
-#         break
-#     dato=i.split(',')
+while True:
+    producto = input("Ingrese el nombre del producto o 'salir' para terminar: ")
     
+    if producto.lower() == "salir":
+        break
 
-def main_valor(v_neto):
-    f=open('Alimentos.txt', 'rt')
-    v_iva=0.19
-    v_base= v_neto/(1+v_iva)
-    iva=v_neto-v_base
-    return v_base, iva
+    valorneto = float(input("Ingrese el valor neto del producto: "))
 
+    resultado = calcular_valorbruto(producto, valorneto)
 
+    if resultado:
+        valorbase, valor_IVA = resultado
+        print("Valor base del producto:", valorbase)
+        print("Valor del IVA:", valor_IVA)
+    else:
+        print("El producto ingresado no está en la lista de productos con IVA.")
 
 
 if __name__=='__main__':
     main_read()
-   #main_valor()
+    calcular_valorbruto(producto, valorneto)
     #main_producto()
