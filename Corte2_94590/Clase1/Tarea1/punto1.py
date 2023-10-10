@@ -1,5 +1,6 @@
 #realice un programa en donde permita  crear una lista de 10 números aleatorios entre 1 y 50 (todos numeros enteros)  despues cree tres funciones donde se reciba la lista como parametro para mayor, minimo y primos
 from random import randint as r
+
 def lista():
     for i in range(10):
         lista.append(r(1,50))
