@@ -1,45 +1,53 @@
 class Ciudadano:
-    def __init__(self, nombre, edad, cedula):
-        self.__nombre = nombre
-        self.__edad = edad
-        self.__cedula = cedula
+    def __init__(self, nombre, cedula, edad):
+        self.nombre = nombre
+        self.cedula = cedula
+        self.edad = edad
 
-    def setnombre(self, nombre):
-        self.__nombre = nombre
+    def setNombre(self, nombre):
+        self.nombre = nombre
 
-    def setedad(self, edad):
+    def setCedula(self, cedula:int):
+        if 8 <= len(cedula) <= 10:
+            self.cedula = cedula
+        else:
+            print("El número de cedula debe tener entre 8 y 10 dígitos")
+
+    def setEdad(self, edad:int):
         if edad > 0:
-            self.__edad = edad
+            self.edad = edad
         else:
-            print("La edad debe ser un número positivo mayor que cero.")
+            print("La edad debe ser un número positivo mayor que cero")
 
-    def setcedula(self, cedula):
-        if len(cedula) >= 8 and len(cedula) <= 10:
-            self.__cedula = cedula
+    def getNombre(self):
+        return self.nombre
+
+    def getCedula(self):
+        return self.cedula
+
+
+    def getEdad(self):
+        return self.edad
+
+    def mostrar(self):
+        print(f"Nombre: {self.nombre} - Edad: {self.edad} - CC: {self.cedula}")
+
+    def MayorDeEdad(self):
+        if self.edad >= 18:
+            return f'{self.edad}Es mayor de edad'
         else:
-            print("La cédula debe tener entre 8 y 10 dígitos.")
-
-    def get_nombre(self):
-        return self.__nombre
-    def get_edad(self):
-        return self.__edad
-    def get_cedula(self):
-        return self.__cedula
-
-
-    def esMayorDeEdad(self):
-        if self.__edad >= 18:
-            return True
-        else:
-            return False
+            return f'{self.edad}Es menor de edad o de la tercera edad'
+   
+            
 def main():
-        mostrar=[]
-        usuario=Ciudadano
-        usuario.setnombre(input('Ingrese su nombre:'))
-        usuario.setedad(int(input('Ingrese su edad: ')))
-        usuario.setcedula(int(input('Ingrese su cedula')))
-        mostrar.appende(usuario)
-        print(f"Nombre: {usuario.__nombre} - Edad: {usuario.__edad} - CC: {usuario.__cedula}")
-    
-if __name__=='__main__':
+    mostrar = []
+    ciudadano1 = Ciudadano("Helen Lopez", "1121706388", 19)
+    mostrar.append(ciudadano1)
+
+    print(f'Nombre:{ciudadano1.nombre}\n'
+          f'Edad:{ciudadano1.edad}\n'
+          f'Cedula{ciudadano1.cedula}')
+    print(ciudadano1.MayorDeEdad())
+
+if __name__ == "__main__":
     main()
