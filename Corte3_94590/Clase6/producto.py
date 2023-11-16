@@ -10,6 +10,14 @@ class Producto():
         return self._precio
     def getcantidad_disponible(self):
         return self._cantidad_disponible
+    
+    def setnombre(self, nombre:str):
+        self._nombre=nombre 
+    def setprecio(self, precio:float):
+        self._precio=precio
+    def setcantidad_disponible(self, cantidad_disponible:int):
+        self._cantidad_disponible=cantidad_disponible
+
     def info_producto(self):
         return f'Nombre:{self._nombre}, Precio: {self._precio}, Cantidad_disponible: {self._cantidad_disponible}'
     
@@ -23,28 +31,19 @@ class Producto():
     def verificar_disponibilidad(self):
         return self.verificar_disponibilidad>0
     
-    def setnombre(self, nombre:str):
-        self._nombre=nombre 
-    def setprecio(self, precio:float):
-        self._precio=precio
-    def setcantidad_disponible(self, cantidad_disponible:int):
-        self._cantidad_disponible=cantidad_disponible
-
-class Snack():
+    
+class Snack(Producto):
     def __init__(self,tipo:str, nombre:str , precio:int ,cantidad_disponible:int):
-        self._nombre=nombre
-        self._precio=precio
-        self._cantidad_disponible=cantidad_disponible
+        super().__init__(nombre:str , precio:int ,cantidad_disponible:int)
         self.tipo=tipo
     
     def info_producto(self):
-        return f'Clase: {self.tipo}' + {self.info_producto}
+        return f'Clase: {self.tipo}' + {self.getnombre()}
+    
 
 class Bebidas():
     def __init__(self,clase:str, nombre:str , precio:int ,cantidad_disponible:int, tamaño:str):
-        self._nombre=nombre
-        self._precio=precio
-        self._cantidad_disponible=cantidad_disponible
+        super().__init__(nombre:str , precio:int ,cantidad_disponible:int)
         self.clase=clase
         self.tamaño=tamaño
     def info_producto(self):
@@ -52,9 +51,7 @@ class Bebidas():
     
 class Dispensadora():
     def __init__(self, nombre:str, precio:float):
-        self.nombre=nombre
-        self.precio=precio
-        self.inventario={}
+        self.producto= inicializar una lista vacia 
         self.total_ventas=0 
 
     def agregas_producto(self, producto, ):
