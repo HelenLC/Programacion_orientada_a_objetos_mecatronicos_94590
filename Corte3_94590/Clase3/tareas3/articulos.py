@@ -3,46 +3,51 @@ class Articulos:
         self.nombre = nombre
         self.precio = precio
 
-    def calcular_precio_bruto(self):
+    def setNombre(self,nombre):
+        self.nombre=nombre
+
+    def setPrecio(self, precio):
+        self.precio=precio
+
+    def getNombre(self):
+        return self.nombre
+    
+    def getPrecio(self):
         return self.precio
 
-    def calcular_valor_iva(self):
-        return 0
+class No_Iva(Articulos):
+    def __init__(self, nombre, precio):
+        super().__init__(nombre, precio)
+        self.iva = 0
 
+class Iva5(Articulos):
+    def __init__(self, nombre, precio):
+        super().__init__(nombre, precio)
+        self.iva = 0.05
 
-class Alimentos(Articulos):
-    def calcular_valor_iva(self):
-        return self.precio * 0.05
+class Iva19(Articulos):
+    def __init__(self, nombre, precio):
+        super().__init__(nombre, precio)
+        self.iva = 0.19
 
+def calcular_precio_bruto(articulo):
+    return articulo.precio * (1 + articulo.iva)
 
-class ArticulosBasicos(Articulos):
-    def calcular_valor_iva(self):
-        return self.precio * 0.19
+def calcular_valor_iva(articulo):
+    return articulo.precio * articulo.iva
 
-
-class ArticulosLujo(Articulos):
-    def calcular_valor_iva(self):
-        return self.precio * 0.19
-
-
-def calcular_precio_total(articulos):
-    precio_total = 0
-    valor_iva_total = 0
-
-    for articulo in articulos:
-        precio_total += articulo.calcular_precio_bruto()
-        valor_iva_total += articulo.calcular_valor_iva()
-
-    return precio_total, valor_iva_total
-articulos = [
-    Alimentos("Arroz", 1000),
-    ArticulosBasicos("Jabón", 500),
-    ArticulosLujo("Perfume", 2000)
+# Crear una lista de alimentos de la canasta familiar
+alimentos = [
+    No_Iva("Lentejas", 3000),
+    Iva5("Docena de huevos", 20000),
+    Iva19("Harina", 3500)
 ]
 
-# Calcular el precio bruto y el valor de IVA
-precio_total, valor_iva_total = calcular_precio_total(articulos)
+def main():
+    for articulo in alimentos:
+        print("Nombre: ", articulo.nombre)
+        print("Precio bruto: ", calcular_precio_bruto(articulo))
+        print("Valor de IVA: ", calcular_valor_iva(articulo))
 
-# Imprimir los resultados
-print(f"Precio bruto total: {precio_total}")
-print(f"Valor de IVA total: {valor_iva_total}")
+if __name__=='__main__':
+    main()
